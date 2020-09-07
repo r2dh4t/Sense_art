@@ -3,7 +3,7 @@ import argparse
 import json
 import re
 import sys
-sys.path.append('/content/gpt2-ml')
+sys.path.append('/content/Sense_art')
 import time
 import tensorflow.compat.v1 as tf
 import numpy as np
@@ -162,7 +162,7 @@ top_p = np.ones((num_chunks, batch_size_per_chunk), dtype=np.float32) * args.top
 
 tf_config = tf.ConfigProto(allow_soft_placement=True)
 
-with open('/content/gpt2-ml/scripts/google.txt', 'r', encoding='utf-8')as file:
+with open('/content/Sense_art/scripts/google.txt', 'r', encoding='utf-8')as file:
     lines = file.readlines()
 
 print(len(lines))
@@ -219,7 +219,7 @@ with tf.Session(config=tf_config, graph=tf.Graph()) as sess:
             print(len(file_dict))
             if len(file_dict) >= 1:
                 for k, v in file_dict.items():
-                    with open(f'/content/gpt2-ml/article/{k}.txt','a', encoding='utf-8')as f:
+                    with open(f'/content/Sense_art/article/{k}.txt','a', encoding='utf-8')as f:
                         f.write(f'{v}\n')
 #            print("\n".join(l))
                 file_dict.clear()
